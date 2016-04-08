@@ -12,9 +12,8 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y \
         bison 
 
 # Install Spack
-RUN cd /home \
-        git clone https://github.com/llnl/spack
-ENV PATH:/home/spack/bin:$PATH
+RUN cd /home && git clone https://github.com/llnl/spack
+ENV PATH=/home/spack/bin:$PATH
 
 # Install everything needed from Spack
 RUN spack install llvm 
